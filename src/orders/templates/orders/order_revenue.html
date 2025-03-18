@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load currency %}
+
+{% block title %}Список заказов{% endblock %}
+
+{% block content %}
+<h2>Выручка</h2>
+
+<p id="revenue"><b>{{ total_revenue|rubles|floatformat:2 }} ₽</b></p>
+
+{% endblock %}

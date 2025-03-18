@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{% if object %}Редактирование заказа{% else %}Создание заказа{% endif %}{% endblock %}
+
+{% block content %}
+    <h2>{% if object %}Редактирование заказа{% else %}Создание заказа{% endif %}</h2>
+    <form id="create-order" method="post">
+        {% csrf_token %}
+        <div class="order">
+            <span class="order-type">Информация о заказе</span>
+            {{ form.as_p }}
+        </div>
+
+        <div class="order">
+            <span class="order-type">Блюда</span>
+            {{ dish_formset.management_form }}
+            <div id="dish-formset">
+                {% for form in dish_formset %}
+                    <div class="dish-row">
+                        {{ form.name.label_tag }} {{ form.name }}
+                        {{ form.price.label_tag }} {{ form.price }}
+                        {{ form.quantity.label_tag }} {{ form.quantity }}
+                        {% if dish_formset.can_delete and object %}
+                            <label class="custom-checkbox" for="{{ form.DELETE.id_for_label }}">
+                                Удалить
+                                {{ form.DELETE }}
+                                <span class="custom-checkmark"></span>
+                            </label>
+                        {% else %}
+                            <button type="button" class="remove-dish">–</button>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="button" id="add-dish">+</button>
+        </div>
+        <button class="button" type="submit">Сохранить заказ</button>
+    </form>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/order_form.js' %}"></script>
+{% endblock %}

@@ -13,4 +13,10 @@ or
 • fork the repository
 • create new project
 • git init
-• git remote add origin <https://github.com/name/repository.git>git branch -M maingit pull origin mainpip install poetrypoetry installrename .env.example to .envdocker-compose up -d
+• git remote add origin <https://github.com/name/repository.git>
+• git branch -M main
+• git pull origin main
+• pip install poetry
+• poetry install
+• rename .env.example to .env
+• docker-compose up -d

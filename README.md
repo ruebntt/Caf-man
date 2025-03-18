@@ -10,4 +10,7 @@ To avoid downloading everything, you can run it in Docker. In the start folder
 
 or
 
-fork the repositorycreate new projectgit initgit remote add origin <https://github.com/name/repository.git>git branch -M maingit pull origin mainpip install poetrypoetry installrename .env.example to .envdocker-compose up -d
+• fork the repository
+• create new project
+• git init
+• git remote add origin <https://github.com/name/repository.git>git branch -M maingit pull origin mainpip install poetrypoetry installrename .env.example to .envdocker-compose up -d

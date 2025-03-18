@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Cafe Orders{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Cafe Order Management</h1>
+        <ul id="navbar">
+            <li><a href="{% url 'order_list' %}">Список заказов</a></li>
+            <li><a href="{% url 'order_create' %}">Создать заказ</a></li>
+            <li><a href="{% url 'order_revenue' %}">Выручка</a></li>
+        </ul>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Cafe Management</p>
+    </footer>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
